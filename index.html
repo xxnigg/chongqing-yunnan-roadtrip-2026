@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#123d38">
+  <meta name="description" content="2026 国庆重庆出发，弥勒、建水、普洱 7 晚轻松自驾行程：每日安排、住宿、预算与出发清单。">
+  <title>重庆出发 · 滇南轻松自驾</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23123d38'/%3E%3Cpath d='M15 41c9-19 22-25 35-27-4 10-13 24-30 32' fill='none' stroke='%23f2c65c' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='43' cy='18' r='5' fill='%23f2c65c'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #17322f;
+      --pine: #123d38;
+      --pine-2: #0d2d29;
+      --jade: #2b766d;
+      --mist: #e7f0ea;
+      --paper: #f8f7f1;
+      --warm: #f2c65c;
+      --clay: #be5c42;
+      --line: rgba(23, 50, 47, .13);
+      --muted: #58706a;
+      --shadow: 0 12px 32px rgba(19, 57, 50, .11);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+      line-height: 1.58;
+      font-size: 16px;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .topbar {
+      color: rgba(255,255,255,.88);
+      background: var(--pine-2);
+      font-size: .82rem;
+      letter-spacing: .02em;
+    }
+    .topbar .wrap {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .status { display: inline-flex; align-items: center; gap: 7px; }
+    .status i { width: 7px; height: 7px; border-radius: 50%; background: var(--warm); display: inline-block; }
+
+    header {
+      color: white;
+      background:
+        linear-gradient(115deg, rgba(7, 38, 34, .93) 0%, rgba(15, 67, 59, .83) 49%, rgba(14, 72, 61, .30) 100%),
+        url("https://images.unsplash.com/photo-1534143046043-44af3469836b?auto=format&fit=crop&w=2400&q=85") center/cover;
+      min-height: 440px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      width: 480px; height: 480px;
+      position: absolute; right: -190px; top: -205px;
+      border: 1px solid rgba(242,198,92,.48);
+      border-radius: 50%;
+      box-shadow: 0 0 0 40px rgba(242,198,92,.08), 0 0 0 110px rgba(242,198,92,.05);
+    }
+    .hero { padding: 54px 0 58px; position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex; gap: 8px; align-items: center;
+      color: #fff2c8; font-size: .85rem; letter-spacing: .11em; font-weight: 700;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--warm); }
+    h1 {
+      max-width: 650px; margin: 12px 0 12px;
+      font-family: "Noto Serif SC", "Songti SC", SimSun, serif;
+      font-size: clamp(2.2rem, 7vw, 4.7rem);
+      line-height: 1.08; letter-spacing: -.04em;
+    }
+    .lede { max-width: 600px; margin: 0; font-size: clamp(1rem, 2.4vw, 1.2rem); color: rgba(255,255,255,.89); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .button {
+      min-height: 46px; border-radius: 999px; padding: 0 18px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border: 1px solid rgba(255,255,255,.45); background: transparent; color: white;
+      cursor: pointer; text-decoration: none; font-weight: 700;
+    }
+    .button.primary { color: #17322f; border-color: var(--warm); background: var(--warm); }
+    .button:focus-visible, summary:focus-visible, a:focus-visible { outline: 3px solid var(--warm); outline-offset: 3px; }
+
+    .trip-strip {
+      position: relative; z-index: 2; margin-top: -38px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      overflow: hidden; border-radius: 16px; background: #fff; box-shadow: var(--shadow);
+    }
+    .metric { padding: 18px 19px; border-right: 1px solid var(--line); }
+    .metric:last-child { border: 0; }
+    .metric b { display: block; color: var(--pine); font-family: "Noto Serif SC", "Songti SC", serif; font-size: 1.45rem; line-height: 1.2; }
+    .metric span { display: block; margin-top: 4px; color: var(--muted); font-size: .83rem; }
+
+    .jump-nav {
+      position: sticky; z-index: 5; top: 0;
+      background: rgba(248,247,241,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px);
+    }
+    .jump-nav .wrap { display: flex; gap: 18px; overflow-x: auto; scrollbar-width: none; }
+    .jump-nav a { flex: 0 0 auto; padding: 13px 0 11px; color: var(--muted); text-decoration: none; font-size: .88rem; font-weight: 700; border-bottom: 2px solid transparent; }
+    .jump-nav a:hover { color: var(--pine); border-color: var(--warm); }
+    .jump-nav a.plan-link { color: var(--pine); }
+
+    main { padding: 52px 0 80px; }
+    section { scroll-margin-top: 62px; margin-top: 58px; }
+    section:first-child { margin-top: 0; }
+    .kicker { color: var(--jade); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h2 { margin: 6px 0 14px; font-family: "Noto Serif SC", "Songti SC", serif; font-size: clamp(1.65rem, 4vw, 2.5rem); line-height: 1.18; letter-spacing: -.025em; }
+    h3 { margin: 0; font-size: 1.08rem; line-height: 1.35; }
+    .intro { max-width: 780px; margin: 0; color: var(--muted); }
+    .notice {
+      display: flex; gap: 12px; align-items: flex-start;
+      margin-top: 21px; padding: 15px 17px;
+      border-radius: 12px; color: #624100; background: #fff3cc; border: 1px solid #eed68c;
+    }
+    .notice strong { display: block; }
+    .notice p { margin: 2px 0 0; font-size: .94rem; }
+    .notice .mark { line-height: 1; font-size: 1.2rem; }
+
+    .route-card {
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: 0;
+      margin-top: 26px; border-radius: 18px; overflow: hidden; background: var(--pine); color: #fff;
+    }
+    .route-main { padding: 28px; }
+    .route-line { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin: 18px 0 16px; }
+    .stop { padding: 6px 10px; border-radius: 999px; color: #17322f; background: #fff; font-size: .9rem; font-weight: 800; }
+    .arrow { color: var(--warm); font-weight: 900; }
+    .route-main p { margin: 0; color: rgba(255,255,255,.77); }
+    .route-why { padding: 28px; color: #d7eee6; background: #0b2d29; }
+    .route-why b { display: block; margin-bottom: 8px; color: var(--warm); }
+    .route-why ul { padding-left: 1.1em; margin: 0; }
+    .route-why li + li { margin-top: 8px; }
+
+    .timeline { margin-top: 26px; display: grid; gap: 12px; }
+    details.day {
+      border: 1px solid var(--line); border-radius: 14px; background: #fff; overflow: hidden;
+      transition: box-shadow .2s ease, transform .2s ease;
+    }
+    details.day[open] { box-shadow: var(--shadow); border-color: rgba(43,118,109,.35); }
+    summary {
+      position: relative; list-style: none; display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center;
+      min-height: 76px; padding: 12px 17px; cursor: pointer;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .date { color: var(--pine); font-family: "Noto Serif SC", "Songti SC", serif; font-weight: 900; font-size: 1.06rem; line-height: 1.12; }
+    .date small { display: block; margin-top: 3px; color: var(--muted); font-family: inherit; font-size: .74rem; font-weight: 500; }
+    .day-title b { display: block; }
+    .day-title span { display: block; margin-top: 3px; color: var(--muted); font-size: .84rem; }
+    .chev { color: var(--jade); font-size: 1.2rem; transition: transform .2s ease; }
+    details[open] .chev { transform: rotate(180deg); }
+    .day-body { padding: 0 17px 20px 95px; }
+    .day-body p { margin: 0 0 12px; color: var(--muted); }
+    .day-body ul { margin: 0; padding-left: 1.15em; }
+    .day-body li + li { margin-top: 7px; }
+    .tag { display: inline-block; margin-right: 6px; padding: 2px 7px; border-radius: 99px; color: #23635b; background: #e3f2ed; font-size: .76rem; font-weight: 800; }
+    .tag.drive { color: #875139; background: #f8e8df; }
+
+    .activity-grid, .hotel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 24px; }
+    .activity, .hotel {
+      padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: #fff;
+    }
+    .activity .index { display: block; margin-bottom: 10px; color: var(--clay); font-family: "Noto Serif SC", "Songti SC", serif; font-size: 1.35rem; font-weight: 900; }
+    .activity p, .hotel p { margin: 9px 0 0; color: var(--muted); font-size: .91rem; }
+    .activity .cost { display: inline-block; margin-top: 13px; color: var(--pine); font-size: .86rem; font-weight: 800; }
+
+    .hotel-grid { grid-template-columns: repeat(2, 1fr); }
+    .hotel { position: relative; padding-left: 24px; }
+    .hotel::before { content: ""; width: 4px; position: absolute; left: 0; top: 20px; bottom: 20px; border-radius: 9px; background: var(--warm); }
+    .hotel-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
+    .hotel-meta span { padding: 3px 7px; border-radius: 5px; color: #32665e; background: #e9f3ed; font-size: .75rem; font-weight: 700; }
+    .hotel a { color: var(--pine); font-weight: 800; text-decoration-color: rgba(18,61,56,.3); text-underline-offset: 3px; }
+    .hotel small { display: block; margin-top: 8px; color: #6c7f79; font-size: .78rem; }
+
+    .budget {
+      display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; margin-top: 24px;
+      padding: 24px; border-radius: 18px; color: white; background: #153a36;
+    }
+    .budget h3 { color: var(--warm); font-family: "Noto Serif SC", "Songti SC", serif; font-size: 1.5rem; }
+    .budget p { color: rgba(255,255,255,.75); }
+    .budget-list { margin: 0; padding: 0; list-style: none; }
+    .budget-list li { display: flex; justify-content: space-between; gap: 18px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+    .budget-list li:last-child { border: 0; color: #fff3c9; font-size: 1.18rem; font-weight: 900; }
+    .budget-list small { color: rgba(255,255,255,.65); }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 23px; }
+    .panel { padding: 20px; border-radius: 14px; background: #edf3ef; }
+    .panel h3 { color: var(--pine); }
+    .panel ul { margin: 12px 0 0; padding-left: 1.18em; }
+    .panel li + li { margin-top: 8px; }
+    .panel.avoid { color: #703d2b; background: #f8e8df; }
+    .panel.avoid h3 { color: #8c422d; }
+
+    .verify {
+      margin-top: 24px; padding: 22px; border: 1px dashed #95ada6; border-radius: 14px; background: #fff;
+    }
+    .source-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px 18px; margin: 15px 0 0; padding: 0; list-style: none; }
+    .source-list a { color: var(--jade); font-size: .89rem; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    footer { color: rgba(255,255,255,.77); background: #0b2d29; padding: 28px 0 calc(28px + env(safe-area-inset-bottom)); }
+    footer .wrap { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+    footer strong { color: var(--warm); }
+    footer p { margin: 5px 0 0; max-width: 720px; font-size: .84rem; }
+
+    @media (max-width: 760px) {
+      header { min-height: 410px; }
+      .topbar .wrap { font-size: .74rem; }
+      .hero { padding-top: 48px; }
+      .trip-strip { grid-template-columns: repeat(2, 1fr); margin-top: -28px; }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      main { padding-top: 36px; }
+      section { margin-top: 44px; }
+      .route-card, .budget { grid-template-columns: 1fr; }
+      .route-main, .route-why, .budget { padding: 21px; }
+      .activity-grid, .hotel-grid { grid-template-columns: 1fr; }
+      summary { grid-template-columns: 54px 1fr auto; gap: 10px; padding-left: 13px; padding-right: 13px; }
+      .day-body { padding: 0 15px 18px 15px; }
+      .two-col, .source-list { grid-template-columns: 1fr; }
+      footer .wrap { display: block; }
+      footer .button { margin-top: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <span class="status"><i></i>2026 国庆 · 两人自驾方案</span>
+      <span>核验更新：2026-09-16</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="wrap hero">
+      <span class="eyebrow">重庆 → 滇南茶山与古城</span>
+      <h1>向南开，<br>把假期留给风景。</h1>
+      <p class="lede">弥勒的红土艺术、建水的慢生活、普洱的茶马古道。7 晚 8 天，绕开高海拔和重装徒步，保留足够睡眠与 400 元机动金。</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#days">查看逐日行程 ↓</a>
+        <button class="button" id="shareButton" type="button" aria-label="分享这份行程">↗ 分享给朋友</button>
+      </div>
+      <div style="margin-top:19px;color:rgba(255,255,255,.68);font-size:.73rem">云南风景图：<a href="https://unsplash.com/fr/s/photos/yunnan" target="_blank" rel="noreferrer">Unsplash</a></div>
+    </div>
+  </header>
+
+  <div class="wrap trip-strip" aria-label="行程总览">
+    <div class="metric"><b>7 晚</b><span>不车宿，每晚住到位</span></div>
+    <div class="metric"><b>约 3,100 km</b><span>含市内与景区往返</span></div>
+    <div class="metric"><b>5,400–5,900 元</b><span>双人总预算，未买特产</span></div>
+    <div class="metric"><b>最高 1,450 m</b><span>不走雪山，不赌高反</span></div>
+  </div>
+
+  <nav class="jump-nav" aria-label="页面导航">
+    <div class="wrap">
+      <a class="plan-link" href="lijiang-shangrila.html">方案二 · 丽江香格里拉</a>
+      <a href="#route">路线取舍</a>
+      <a href="#days">每日安排</a>
+      <a href="#play">轻松玩法</a>
+      <a href="#stay">住宿</a>
+      <a href="#money">预算</a>
+      <a href="#ready">出发清单</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="route">
+      <div class="kicker">ROUTE FIRST</div>
+      <h2>这次不去瑞丽和西双版纳</h2>
+      <p class="intro">不是它们不值得，而是 7 天假期里再往南会把返程挤成连续长途。弥勒、建水、普洱已经形成一条“艺术—古城—茶山”的完整线路：有温暖感，但不牺牲睡眠和驾驶安全。</p>
+      <div class="notice">
+        <span class="mark">!</span>
+        <div><strong>高速免费时间要卡好</strong><p>2026 年国庆为 10 月 1 日 00:00 至 10 月 7 日 24:00。9 月 30 日晚出发可行，但返程一定要在 10 月 7 日 24:00 前驶离高速。</p></div>
+      </div>
+      <div class="route-card">
+        <div class="route-main">
+          <div class="kicker" style="color:#f2c65c">THE LOOP</div>
+          <div class="route-line">
+            <span class="stop">重庆</span><span class="arrow">→</span>
+            <span class="stop">贵阳</span><span class="arrow">→</span>
+            <span class="stop">弥勒</span><span class="arrow">→</span>
+            <span class="stop">建水</span><span class="arrow">→</span>
+            <span class="stop">普洱</span><span class="arrow">→</span>
+            <span class="stop">昆明</span><span class="arrow">→</span>
+            <span class="stop">贵阳</span><span class="arrow">→</span>
+            <span class="stop">重庆</span>
+          </div>
+          <p>主干依导航走 G75 / G60 / G80 / 昆磨高速。不要在地图里强制“最短路”；国庆以高德/百度的实时事故、管制和服务区状态为准。</p>
+        </div>
+        <div class="route-why">
+          <b>为什么它最值</b>
+          <ul>
+            <li>每日最长驾驶控制在约 8 小时；最后一天只开约 5 小时。</li>
+            <li>普洱已足够“向南”，比硬塞西双版纳少约 500–700 km。</li>
+            <li>核心景点门票低，预算能留给好住、好吃和临时绕行。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="days">
+      <div class="kicker">DAY BY DAY</div>
+      <h2>每天只设一个主任务</h2>
+      <p class="intro">下列车程为正常天气下的保守安排，已经把两小时一次服务区休息纳入。国庆第一天和返程日，宁可早起，也不要把夜路留给山路。</p>
+      <div class="timeline">
+        <details class="day" open>
+          <summary><span class="date">09/30<small>周三晚</small></span><span class="day-title"><b>重庆 → 贵阳</b><span>约 380 km · 约 5 小时</span></span><span class="chev">⌄</span></summary>
+          <div class="day-body">
+            <p><span class="tag drive">驾驶日</span>20:00–20:30 出发，两人轮换一次。预计 01:00 前后抵达贵阳观山湖，直接洗澡睡觉；酒店务必按“9 月 30 日入住、凌晨到店”预订。</p>
+            <ul><li>出发前：满油、满电、胎压与玻璃水检查；车上备 2 L 水、零食、纸巾与薄外套。</li><li>不建议为等免费而在收费站口停车；如时间过早，在正规服务区休息后再驶离高速。</li></ul>
+          </div>
+        </details>
+        <details class="day">
+          <summary><span class="date">10/01<small>周四</small></span><span class="day-title"><b>贵阳 → 弥勒</b><span>约 600 km · 7.5–8.5 小时</span></span><span class="chev">⌄</span></summary>
+          <div class="day-body">
+            <p><span class="tag drive">驾驶日</span>09:00 出发，午餐放在服务区或沿线县城；17:30 前抵达弥勒。晚上只逛湖泉生态园或红河水乡，吃一顿本地烧烤/卤鸡米线，早睡。</p>
+            <ul><li>这天是进入云南的落脚日，不再赶东风韵夜景。</li><li>建议把补能安排在酒店；弥勒的备选住宿均有免费停车，部分有充电位。</li></ul>
+          </div>
+        </details>
+        <details class="day">
+          <summary><span class="date">10/02<small>周五</small></span><span class="day-title"><b>弥勒慢玩 → 建水</b><span>上午游玩 · 下午约 2 小时</span></span><span class="chev">⌄</span></summary>
+          <div class="day-body">
+            <p><span class="tag">轻松日</span>08:30 前进东风韵，重点是万花筒、花田和艺术建筑步道，走走拍拍 2–3 小时即可。午饭后出发建水，16:00 左右办理入住；傍晚慢逛朝阳楼—临安路—小桂湖。</p>
+            <ul><li>东风韵只买门票，不买不必要的旅拍、酒庄套餐；景区内住宿若含门票和早餐再考虑。</li><li>建水古城适合“住一晚再逛”，车停客栈后步行，别把车开进拥挤巷子。</li></ul>
+          </div>
+        </details>
+        <details class="day">
+          <summary><span class="date">10/03<small>周六</small></span><span class="day-title"><b>建水 → 普洱</b><span>约 520 km · 7–8 小时</span></span><span class="chev">⌄</span></summary>
+          <div class="day-body">
+            <p><span class="tag drive">驾驶日</span>07:30 早餐后离开，尽量在 17:00 前到普洱。入住茶马古道附近民宿后，只做茶马古城夜逛与晚饭，不追加景点。</p>
+            <ul><li>建水早晨可留 30 分钟去双龙桥拍照；不坐小火车，国庆票紧、时间不值。</li><li>普洱路段雨后湿滑，遇强降雨就减少服务区外的停靠与夜间驾驶。</li></ul>
+          </div>
+        </details>
+        <details class="day">
+          <summary><span class="date">10/04<small>周日</small></span><span class="day-title"><b>普洱：茶马古道与咖啡</b><span>本地短途 · 不赶路</span></span><span class="chev">⌄</span></summary>
+          <div class="day-body">
+            <p><span class="tag">轻松日</span>上午那柯里茶马驿站，选村内古道和溪边的轻步行，控制在 3–5 km；午后回市区喝咖啡、逛普洱市博物馆或茶马古城。整天不给“打卡数量”设 KPI。</p>
+            <ul><li>那柯里适合轻徒步，不是重装线：穿防滑运动鞋，带雨衣与驱蚊液，不走未开发岔路。</li><li>想买茶只买一两泡试喝后再决定；不进“免费品茶 + 强推礼盒”的团。</li></ul>
+          </div>
+        </details>
+        <details class="day">
+          <summary><span class="date">10/05<small>周一</small></span><span class="day-title"><b>普洱 → 昆明</b><span>约 420 km · 5.5–6.5 小时</span></span><span class="chev">⌄</span></summary>
+          <div class="day-body">
+            <p><span class="tag drive">半程驾驶</span>睡到自然醒，10:00 前退房上昆磨高速。16:30 左右到昆明，傍晚在滇池路附近吃菌子火锅或米线；不要去排队爆满的网红店。</p>
+            <ul><li>普洱—昆明约 418 km，常规驾车约 5.7 小时；当天留出晚饭和洗衣时间，给返程恢复体力。</li><li>若遇雨或身体疲劳，下午提前到昆明，不加滇池环线。</li></ul>
+          </div>
+        </details>
+        <details class="day">
+          <summary><span class="date">10/06<small>周二</small></span><span class="day-title"><b>昆明 → 贵阳</b><span>约 520 km · 7–8 小时</span></span><span class="chev">⌄</span></summary>
+          <div class="day-body">
+            <p><span class="tag drive">驾驶日</span>08:00 出发，午饭安排在服务区。17:00–18:00 入住贵阳，吃酸汤牛肉或肠旺面，晚上不排任何景点。这一晚睡好，最后一天会舒服很多。</p>
+            <ul><li>晚上把油箱补到至少半箱，手机导航离线地图下载好。</li><li>检查 10/7 出口时间；高速免费以驶离出口时刻为准。</li></ul>
+          </div>
+        </details>
+        <details class="day">
+          <summary><span class="date">10/07<small>周三</small></span><span class="day-title"><b>贵阳 → 重庆</b><span>约 380 km · 4.5–5.5 小时</span></span><span class="chev">⌄</span></summary>
+          <div class="day-body">
+            <p><span class="tag">轻松收尾</span>09:00 后出发也来得及，午后到重庆。把最后一天留给缓冲：堵车、吃饭或抵家后洗车、整理照片都不慌。</p>
+            <ul><li>这是本路线胜过“硬塞西双版纳”的关键：返程不需要连续 10 小时以上驾驶。</li><li>到家前记得加油/补电，避免节后第一天再排队。</li></ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="play">
+      <div class="kicker">EASY WALKS</div>
+      <h2>不背包过夜，也有好玩的徒步</h2>
+      <div class="activity-grid">
+        <article class="activity">
+          <span class="index">01</span><h3>东风韵 · 艺术步道</h3>
+          <p>红砖建筑、花田与葡萄园之间平缓步行。建议开园前到，上午光线好、人流相对少；2–3 小时就够。</p>
+          <span class="cost">双人预留：160 元以内</span>
+        </article>
+        <article class="activity">
+          <span class="index">02</span><h3>建水 · 古城夜走</h3>
+          <p>朝阳楼、临安路、小桂湖、文庙外围连成 2–4 km 平路。吃着烧豆腐慢慢走，比买联票更有建水味道。</p>
+          <span class="cost">双人预留：0–100 元</span>
+        </article>
+        <article class="activity">
+          <span class="index">03</span><h3>那柯里 · 茶马驿站</h3>
+          <p>在宁洱的古村、溪流与茶马古道遗迹间轻走。只走公开步道，雨天缩短为村内喝茶与古桥拍照。</p>
+          <span class="cost">双人预留：0–80 元</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="stay">
+      <div class="kicker">SLEEP WELL</div>
+      <h2>住宿：民宿优先，连锁兜底</h2>
+      <p class="intro">按“两人一间、热水稳定、空调、独立卫浴、免费停车”筛选。国庆实时房价变化很快，以下是建议上限；超过上限就换同商圈同条件的房，不为某一家硬加钱。</p>
+      <div class="hotel-grid">
+        <article class="hotel"><h3>贵阳 × 2 晚</h3><p><a href="https://hotels.ctrip.com/hotels/28275312.html" target="_blank" rel="noreferrer">美琪酒店（贵阳北站店）</a>：北大资源梦想城 7A01 栋 18 楼，页面标注免费停车、热水充足与较好隔音。</p><div class="hotel-meta"><span>≤180 元/晚</span><span>停车免费</span><span>简洁干净</span></div><small>9/30、10/6 分别订；凌晨抵店要提前留言。</small></article>
+        <article class="hotel"><h3>弥勒 × 1 晚</h3><p><a href="https://hotels.ctrip.com/hotels/125771946.html" target="_blank" rel="noreferrer">韵景莊园酒店</a>：东风韵约 1 km，免费停车、充电位；想住市区则选云栖民宿，性价比更高。</p><div class="hotel-meta"><span>≤260 元/晚</span><span>可补能</span><span>近东风韵</span></div><small>若艺术客栈套餐含双早、门票和车票，才值得比较总价。</small></article>
+        <article class="hotel"><h3>建水 × 1 晚</h3><p><a href="https://hotels.ctrip.com/hotels/70642160.html" target="_blank" rel="noreferrer">谷语客栈（建水古城店）</a>：小西庄 99 号，距古城约 230 m，有免费停车，适合住一晚慢逛。</p><div class="hotel-meta"><span>≤220 元/晚</span><span>客栈</span><span>步行古城</span></div><small>如果想要最稳热水与大停车场，用建水酒店（古城店）作备选。</small></article>
+        <article class="hotel"><h3>普洱 × 2 晚</h3><p><a href="https://hotels.ctrip.com/hotels/122140811.html" target="_blank" rel="noreferrer">拾福小院民宿（茶马古道景区店）</a>：茶马古道社区十里春风 90 栋，免费停车，茶马古道遗址公园约 1.1 km。</p><div class="hotel-meta"><span>≤240 元/晚</span><span>民宿小院</span><span>安静</span></div><small>若满房：普惠酒店（茶马古城店）停车方便、热水大，是经济备选。</small></article>
+        <article class="hotel"><h3>昆明 × 1 晚</h3><p><a href="https://hotels.corporatetravel.ctrip.com/hotels/1981852.html" target="_blank" rel="noreferrer">汉庭酒店（滇池路万达广场店）</a>：老海埂路 139 号，有免费停车、洗衣服务；只用作返程前恢复体力。</p><div class="hotel-meta"><span>≤220 元/晚</span><span>免费停车</span><span>洗衣</span></div><small>不必住景区湖边，市区连锁更便宜、早上出城更省事。</small></article>
+        <article class="hotel"><h3>订房规则</h3><p>优先订“可免费取消 + 评分 4.5 以上 + 最近 90 天有入住评价”的房。先保房，再根据 9/28 的天气和路况决定是否切换。</p><div class="hotel-meta"><span>有独卫</span><span>确认空调</span><span>确认热水</span></div><small>到店前电话确认：停车是否免费、车位是否留得住、凌晨前台是否有人。</small></article>
+      </div>
+    </section>
+
+    <section id="money">
+      <div class="kicker">THE 6,000 PLAN</div>
+      <h2>预算不赌低价，留一笔缓冲</h2>
+      <div class="budget">
+        <div><h3>总额控制在<br>5,400–5,900 元</h3><p>以“首段纯电约 160 km、后续亏电油耗约 5 L/100 km”、总里程约 3,100 km 测算。高速免费按 7 座及以下小客车执行；停车与临时补电仍留预算。</p><p>不含：酒水、旅拍、温泉套票、大额茶叶与伴手礼。</p></div>
+        <ul class="budget-list">
+          <li><span>住宿 <small>7 晚，上限控制</small></span><b>1,500 元</b></li>
+          <li><span>油费 + 补电 <small>约 150 L 油 + 公共充电</small></span><b>1,150 元</b></li>
+          <li><span>景点与轻活动 <small>东风韵、建水小额门票等</small></span><b>400 元</b></li>
+          <li><span>吃饭 <small>约 185 元 / 两人 / 天</small></span><b>1,480 元</b></li>
+          <li><span>停车、零食、保险</span><b>350 元</b></li>
+          <li><span>预计总计</span><b>4,880 元</b></li>
+          <li><span>留作涨价/绕行缓冲</span><b>1,120 元</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="ready">
+      <div class="kicker">GO SMART</div>
+      <h2>轻松，靠的是不临场硬扛</h2>
+      <div class="two-col">
+        <div class="panel">
+          <h3>出发前 7 天</h3>
+          <ul>
+            <li>先锁 7 晚可取消房；把每晚房价总额控制在 1,500 元内。</li>
+            <li>下载离线地图，收藏每晚酒店、加油站和备选酒店。</li>
+            <li>雨衣、驱蚊液、防滑鞋、薄羽绒/抓绒各一件；滇南昼夜温差仍明显。</li>
+            <li>不买重装装备；日用 15–20 L 小背包足够。</li>
+          </ul>
+        </div>
+        <div class="panel avoid">
+          <h3>本次坚决不做</h3>
+          <ul>
+            <li>不硬塞西双版纳：会让普洱—昆明—重庆返程失去缓冲。</li>
+            <li>不走夜间山区国道、不临时跟低价一日团、不买“免费品茶”高价礼盒。</li>
+            <li>驾驶员累了就换人或加住一晚；行程可以少一个点，不能少一晚睡眠。</li>
+            <li>雨天不进未开发步道，也不把山路当成景观赛道。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="verify">
+        <h3>已核验的关键信息</h3>
+        <p class="intro">价格、开放时间和国庆交通会变动，出发前 48 小时再点开以下官方/平台页复查。页面中的车程均为规划值，不替代实时导航。</p>
+        <ul class="source-list">
+          <li><a href="https://big5.www.gov.cn/gate/big5/www.gov.cn/gongbao/2025/issue_12406/202511/content_7048922.html" target="_blank" rel="noreferrer">国务院：2026 国庆 10/1–10/7</a></li>
+          <li><a href="https://www.muping.gov.cn/art/2025/11/10/art_50451_2960239.html" target="_blank" rel="noreferrer">高速免费：7 座以下与时间范围</a></li>
+          <li><a href="https://hhml.gov.cn/info/3141/126751.htm" target="_blank" rel="noreferrer">弥勒文旅：东风韵、太平湖等票务说明</a></li>
+          <li><a href="https://www.hhjs.gov.cn/gcjs.htm" target="_blank" rel="noreferrer">建水县政府：古城、朝阳楼、双龙桥</a></li>
+          <li><a href="https://www.puerw.cn/content/202602/27/c476730.html" target="_blank" rel="noreferrer">普洱：茶马古道与那柯里信息</a></li>
+          <li><a href="https://www.icauto.com.cn/route/363_357.html" target="_blank" rel="noreferrer">普洱—昆明：约 418 km、5.7 小时参考</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div><strong>重庆出发 · 滇南轻松自驾</strong><p>给两个想看风景、也想好好休息的人。转发前，记得让朋友打开“每日安排”和“预算”两栏。</p></div>
+      <button class="button" id="shareButtonFooter" type="button">↗ 分享行程</button>
+    </div>
+  </footer>
+
+  <script>
+    async function shareTrip() {
+      const data = {
+        title: document.title,
+        text: '重庆出发：弥勒、建水、普洱 7 晚轻松自驾攻略，预算 6000 元以内。',
+        url: window.location.href
+      };
+      try {
+        if (navigator.share) {
+          await navigator.share(data);
+          return;
+        }
+        await navigator.clipboard.writeText(window.location.href);
+        alert('链接已复制，发给朋友就行。');
+      } catch (error) {
+        if (error && error.name !== 'AbortError') {
+          alert('分享未完成，可直接复制浏览器地址发送给朋友。');
+        }
+      }
+    }
+    document.getElementById('shareButton').addEventListener('click', shareTrip);
+    document.getElementById('shareButtonFooter').addEventListener('click', shareTrip);
+  </script>
+</body>
+</html>
